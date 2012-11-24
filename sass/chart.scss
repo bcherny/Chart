@@ -1,0 +1,86 @@
+* { border:0;margin:0;padding:0 }
+
+body {
+	font: 12px Helvetica;
+	text-align: left;
+}
+
+$chart-width: 650px;
+
+.stack-0 { background: #006199 }
+.stack-1 { background: #0b8ad3 }
+.stack-2 { background: #023552 }
+.stack-3 { background: #CAD7B2 }
+.stack-4 { background: #EBE3AA }
+
+.chart {
+	background: #eee;
+	display: block;
+	height: 400px;
+	margin: 100px auto;
+	padding: 30px 0 0;
+	position: relative;
+	text-align: center;
+	width: $chart-width;
+}
+
+.key {
+	padding: 0 0 0 10px;
+	position: absolute;
+		left: 100%;
+		top: 0;
+	white-space: nowrap;
+	width: 150px;
+
+	span {
+		display: block;
+		padding: 5px;
+		text-indent: 15px;
+		width: 5px;
+	}
+}
+
+.chart-bar {
+
+	b,i {
+		display: block;
+		padding: 5px 0;
+		position: absolute;
+			left: 0;
+		width: 100%;
+	}
+
+	b {
+		font-weight: normal;
+		top: 100%;
+			
+	}
+
+	i {
+		font-style: normal;
+		bottom: 100%;
+	}
+}
+
+
+.bar,.stack {
+	position: relative;
+}
+
+.bar {
+	display: inline-block;
+	margin: 0 1px 0 0;
+	white-space: ignore;
+	vertical-align: bottom;
+}
+
+.stack {
+	display: block;
+	width: 100%;
+}
+
+@for $n from 1 through 20 {
+	.chart-count-#{$n} .bar {
+		width: 100%/($n) - 100%*(1px/$chart-width);
+	}
+}
